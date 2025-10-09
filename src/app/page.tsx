@@ -94,6 +94,26 @@ export default function Home() {
           </Link>
           <Link
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#7ed957] text-black gap-2 hover:bg-[#6bc84a] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            href="/waitlist"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              />
+            </svg>
+            Join Waitlist
+          </Link>
+          <Link
+            className="rounded-full border border-solid border-gray-200 transition-colors flex items-center justify-center bg-white text-black gap-2 hover:bg-gray-50 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
             href="/learn-more"
           >
             <svg
