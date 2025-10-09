@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
       const { error } = await resend.emails.send({
         from: "Bands Waitlist <onboarding@resend.dev>",
-        to: ["eliotshytaj05@gmail.com"],
+        to: ["eliot.shytaj@stonybrook.edu"],
         subject: `New Waitlist Signup: ${name}`,
         html: emailContent,
         replyTo: email,
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
         console.error("❌ Resend error:", error);
         // Don't fail the request - just log the error
       } else {
-        console.log("✅ Email sent successfully to eliotshytaj05@gmail.com");
+        console.log("✅ Email sent successfully to eliot.shytaj@stonybrook.edu");
       }
     } else {
       console.warn("⚠️  RESEND_API_KEY not configured - email not sent");

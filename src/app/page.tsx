@@ -36,27 +36,12 @@ export default function Home() {
             />
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1 text-gray-500 hover:text-gray-700 cursor-pointer">
-              <span>Blog</span>
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-            <Link href="/pricing" className="text-gray-500 hover:text-gray-700">Pricing</Link>
-            <Link href="/mission" className="text-gray-500 hover:text-gray-700">Our Mission</Link>
-          </div>
-
-          {/* Get Started Button */}
+          {/* Join Waitlist Button */}
           <Link
-            href="/market"
+            href="/waitlist"
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
           >
-            Get Started
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-            </svg>
+            Join the waitlist
           </Link>
         </div>
       </nav>
@@ -72,26 +57,6 @@ export default function Home() {
         </p>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/market"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 17L17 7M17 7H7M17 7V17"
-              />
-            </svg>
-            Start Shopping
-          </Link>
           <Link
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#7ed957] text-black gap-2 hover:bg-[#6bc84a] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
             href="/waitlist"
@@ -111,26 +76,6 @@ export default function Home() {
               />
             </svg>
             Join Waitlist
-          </Link>
-          <Link
-            className="rounded-full border border-solid border-gray-200 transition-colors flex items-center justify-center bg-white text-black gap-2 hover:bg-gray-50 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/learn-more"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-              />
-            </svg>
-            Become a Seller
           </Link>
         </div>
       </main>

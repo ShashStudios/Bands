@@ -277,45 +277,6 @@ export default function WaitlistPage() {
           </div>
         </motion.div>
 
-        {/* Benefits Section */}
-        {status !== "success" && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl"
-          >
-            {[
-              {
-                icon: "⚡",
-                title: "Early Access",
-                description: "Be the first to explore our platform before public launch",
-              },
-              {
-                icon: "🎁",
-                title: "Exclusive Benefits",
-                description: "Special perks and discounts for early supporters",
-              },
-              {
-                icon: "💬",
-                title: "Shape the Future",
-                description: "Your feedback will directly influence our development",
-              },
-            ].map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 1.0 + index * 0.1 }}
-                className="text-center bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50"
-              >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-sm text-gray-600">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
       </div>
     </div>
   );
