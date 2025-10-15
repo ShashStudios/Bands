@@ -16,7 +16,7 @@ export default function LearnMorePage() {
           </p>
           
           <p>
-            Most people don't know where to start.<br />
+            Most people don&apos;t know where to start.<br />
             We make it simple.
           </p>
           

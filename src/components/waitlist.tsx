@@ -35,8 +35,13 @@ export function Waitlist() {
         setMessage(data.error || "Failed to join waitlist");
       }
     } catch (error) {
+      console.error("Waitlist join failed:", error);
       setStatus("error");
-      setMessage("Something went wrong. Please try again.");
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
     }
   };
 
