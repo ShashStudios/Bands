@@ -5,6 +5,8 @@ export default function LearnMorePage() {
     <div className="min-h-screen bg-white flex items-center justify-center p-8">
       <div className="max-w-2xl space-y-8">
         <div className="text-xl text-black space-y-6">
+          <p className="font-bold text-2xl mb-6">F*CK Shopify, Etsy, Gumroad, all that</p>
+          
           <p>
             OpenAI just launched the Agentic Commerce Protocol (ACP).<br />
             It lets anyone sell products or services directly inside ChatGPT.

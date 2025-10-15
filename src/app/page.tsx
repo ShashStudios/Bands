@@ -97,6 +97,22 @@ export default function Home() {
           />
           Eliot
         </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://x.com/yus_dinov"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Yusuf on X"
+        >
+          <Image
+            aria-hidden
+            src="/x.svg"
+            alt="X logo"
+            width={16}
+            height={16}
+          />
+          Yusuf
+        </a>
       </footer>
     </div>
   );
