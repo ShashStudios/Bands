@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { Waitlist } from "@/components/waitlist";
 // removed unused imports
 
 export default function Home() {
@@ -36,47 +39,29 @@ export default function Home() {
             />
           </div>
 
-          {/* Join Waitlist Button */}
+          {/* Learn More Button */}
           <Link
-            href="/waitlist"
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            href="/learn-more"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-black text-white gap-2 hover:bg-gray-800 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
           >
-            Join the waitlist
+            Learn More
           </Link>
         </div>
       </nav>
       <main className="flex flex-col gap-[32px] row-start-2 items-center justify-center relative z-10">
         {/* Main Headline */}
         <h1 className="text-5xl md:text-6xl font-bold text-black text-center max-w-4xl mt-32 whitespace-nowrap">
-          The First AI Native Marketplace
+          Sell Your Products on ChatGPT
         </h1>
 
         {/* Sub-headline */}
         <p className="text-xl text-black text-center mb-6 max-w-2xl -mt-8">
-          Powering the AI economy by connecting creators, developers, and businesses. All in one place.
+          Launch your AI-native storefront in minutes. No code. No complexity.<br />
+          Just plug in and sell.
         </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row justify-center">
-          <Link
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#7ed957] text-black gap-2 hover:bg-[#6bc84a] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="/waitlist"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-              />
-            </svg>
-            Join Waitlist
-          </Link>
+        <div id="waitlist-form" className="flex gap-4 items-center flex-col sm:flex-row justify-center">
+          <Waitlist />
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center relative z-10">

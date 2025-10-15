@@ -35,6 +35,8 @@ Add the following to your `.env` or `.env.local` file:
 
 ```env
 RESEND_API_KEY=re_your_api_key_here
+RESEND_WAITLIST_FROM="Bands Waitlist <onboarding@resend.dev>"
+RESEND_WAITLIST_RECIPIENT=eliotshytaj05@gmail.com
 ```
 
 ### Step 3: Verify Email Domain (Optional but Recommended)

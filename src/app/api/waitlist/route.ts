@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialize Resend with API key from environment variables (optional)
-const resend = process.env.RESEND_API_KEY 
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
+export const runtime = "nodejs";
+
+// Configure Resend client using environment variables so the SDK can send emails.
+const resendApiKey = process.env.RESEND_API_KEY;
+const resendClient = resendApiKey ? new Resend(resendApiKey) : null;
+const waitlistRecipient =
+  process.env.RESEND_WAITLIST_RECIPIENT ?? "eliotshytaj05@gmail.com";
+const waitlistFromEmail =
+  process.env.RESEND_WAITLIST_FROM ?? "Bands Waitlist <onboarding@resend.dev>";
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,7 +45,10 @@ export async function POST(request: NextRequest) {
     console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 
     // Send email using Resend if API key is configured
-    if (resend) {
+    let emailSent = false;
+    let sendError: string | null = null;
+
+    if (resendClient) {
       const emailContent = `
         <h2>New Waitlist Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -52,33 +60,55 @@ export async function POST(request: NextRequest) {
         <p><em>Submitted at: ${new Date().toLocaleString()}</em></p>
       `;
 
-      const { error } = await resend.emails.send({
-        from: "Bands Waitlist <onboarding@resend.dev>",
-        to: ["eliot.shytaj@stonybrook.edu"],
-        subject: `New Waitlist Signup: ${name}`,
-        html: emailContent,
-        replyTo: email,
-      });
+      try {
+        const { error } = await resendClient.emails.send({
+          from: waitlistFromEmail,
+          to: [waitlistRecipient],
+          subject: `New Waitlist Signup: ${name}`,
+          html: emailContent,
+          replyTo: email,
+        });
 
-      if (error) {
-        console.error("❌ Resend error:", error);
-        // Don't fail the request - just log the error
-      } else {
-        console.log("✅ Email sent successfully to eliot.shytaj@stonybrook.edu");
+        if (error) {
+          console.error("❌ Resend error:", error);
+          sendError =
+            typeof error === "string"
+              ? error
+              : error?.message ?? "Resend returned an unknown error";
+        } else {
+          emailSent = true;
+          console.log(
+            `✅ Email sent successfully to ${waitlistRecipient}`
+          );
+        }
+      } catch (error) {
+        console.error("❌ Resend SDK threw an exception:", error);
+        sendError =
+          error instanceof Error
+            ? error.message
+            : "Resend client threw an unknown error";
       }
     } else {
       console.warn("⚠️  RESEND_API_KEY not configured - email not sent");
       console.log("💡 Add RESEND_API_KEY to .env.local to enable email notifications");
+      sendError = "Email service is not configured";
     }
 
     // Store in database (optional - add your database logic here)
     // await db.waitlist.create({ name, email, company, role, message });
 
+    if (sendError) {
+      return NextResponse.json(
+        { error: `Unable to send notification email: ${sendError}` },
+        { status: 502 }
+      );
+    }
+
     return NextResponse.json(
       {
         message: "Successfully joined waitlist",
         data: { name, email },
-        emailSent: resend !== null,
+        emailSent,
       },
       { status: 200 }
     );
