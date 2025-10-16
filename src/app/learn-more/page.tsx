@@ -13,8 +13,8 @@ export default function LearnMorePage() {
           </p>
           
           <p>
-            But setup is confusing.<br />
-            It requires tech garbageflows.
+            But this requires coding,<br />
+            And trust me you don't want to code
           </p>
           
           <p>
